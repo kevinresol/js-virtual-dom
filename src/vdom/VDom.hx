@@ -85,6 +85,7 @@ extern class VDom {
 
   static inline function select(attr: SelectAttr, ?children:Children):VNode return h('select', attr, children);
   static inline function option(attr: OptionAttr, ?children:Children):VNode return h('option', attr, children);
+  static inline function script(attr: ScriptAttr, ?children:Children):VNode return h('script', attr, children);
 
   static inline function splat(nodes:Array<VNode>):VNode return cast nodes;
 
@@ -223,6 +224,14 @@ typedef OptionAttr = {> AttrOf<OptionElement>,
   @:optional var value(default, never):String;
   @:optional var text(default, never):String;
   @:optional var index(default, never):Int;
+}
+
+typedef ScriptAttr = {> AttrOf<ScriptElement>,
+  @:optional var async(default, never):Bool;
+  @:optional var charset(default, never):String;
+  @:optional var defer(default, never):Bool;
+  @:optional var src(default, never):String;
+  @:optional var type(default, never):String;
 }
 
 
